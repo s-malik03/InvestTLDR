@@ -1,7 +1,8 @@
 import requests
 import json
+import bs4
 
-def get_news_articles(company, api_key):
+def get_news_articles(company):
     query = f'"{company}"'
     headers = {
         'Ocp-Apim-Subscription-Key': 'afb43b53c95e45f38abaed82fd388bf7'
@@ -12,7 +13,9 @@ def get_news_articles(company, api_key):
         'mkt': 'en-US'
     }
     url = 'https://api.bing.microsoft.com/v7.0/news/search/'
+    print(company)
     response = requests.get(url, headers=headers, params=params)
+    print("Bing search completed")
     response_json = response.json()
     articles = response_json['value']
     return [article['url'] for article in articles]
