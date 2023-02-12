@@ -8,7 +8,7 @@ data = {}
 # Get a list of all the files in the directory
 for filename in os.listdir():
     # Check if the file is an HTML file
-    if filename.endswith(".html") or filename.endswith("htm"):
+    if filename.endswith(".html") or filename.endswith(".txt"):
         # Open the file
         with open(filename, "rb") as file:
             # Read the contents of the file

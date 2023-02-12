@@ -82,10 +82,15 @@ if __name__ == "__main__":
     response = ask_collection(
          base_url,
          "data",
-         "Give an analysis of whether I should invest in Apple or not to get returns in the next year.",
+         "Should I invest in Apple? Yes or no. Give reasons why.",
          key
      )
-    print(json.loads(response.text)['response'])
+    try:
+        print(json.loads(response.text)['response'])
+
+    except:
+        print(json.loads(response.text))
+
     #response = history_collection(base_url, "10k", key)
     #response = update_collection(base_url, "10k", "10k.json", key)
     response = delete_collection(base_url, "data", key)
